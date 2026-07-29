@@ -46,13 +46,16 @@ public class Practice1 { // class s
         scan.nextLine(); // nextInt() 3 입력후 엔터(\n) 치면 3 은 반환되고 엔터(\n) 유지(남는다) 된다. \n 초기화
         System.out.print("게시물 제목: "); String 제목 = scan.nextLine();
         System.out.print("게시물 내용: "); String 내용 = scan.nextLine();
-
+        System.out.printf("[%d 게시물 ] \n" , 번호 );
+        System.out.printf("제목 : %s \n" , 제목 );
+        System.out.printf("제목 : %s \n" , 제목 );
+    
         // 10. nextChar() 제공하지 않는다. next().charAt(인덱스) : 해당인덱스의 문자1개 추출함수 , *문자열은 배열이다.*
         System.out.print("성별을 입력하세요(남/여): "); char 성별 = scan.next().charAt(0);
         System.out.printf("입력하신 성별은 %s 입니다. \n" , 성별 );
 
         // 11. 직접 풀기 
-        
+
 
     } // main e // ctrl+f5(코드실행) 
 }// class e
