@@ -32,7 +32,7 @@ public class Practice3 {
 
         // 5. 주석암 : 값 % 수 == 0 , 나머지가 0 이면 값은 그 수의 배수
         System.out.print("정수를 입력하세요 : ");   int i = scan.nextInt();
-        System.err.println( i % 7 == 0 );
+        System.out.println( i % 7 == 0 );
 
         // 6. 조현우 : JS/PY ==문자열비교가능, JAVA/C ==문자열비교불가능
         System.out.print("아이디: ");   String id = scan.next();    // .next() 문자열 -> String 변수
