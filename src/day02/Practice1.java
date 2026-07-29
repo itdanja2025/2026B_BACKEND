@@ -1,12 +1,14 @@
 package day02;
 
+import java.util.Scanner;
+
 public class Practice1 { // class s 
     // m+엔터 : main함수 
     public static void main(String[] args) { // main s 
 
         // 1. so+엔터 : println함수 
         System.out.println( 25 ); System.out.println("홍길동" );
-        
+
         // 2. JAVA: 타입 변수명 = 10 [[VS]] JS: let 변수명 = 10
         int age = 40;   // vs let age = 40 
         System.out.println( age );
@@ -19,59 +21,41 @@ public class Practice1 { // class s
 
         // 5. +연결연산자 복잡한 경우 형식문자 printf( "형식문자" , 자료 )
         System.out.printf( "제 이름은 %s, 나이는 %d세, 키는 %.1fcm 입니다.\n" , name , age2 , height );
+        
+        // 6. |: shift+\  , \n : 줄바꿈 , \" : "출력
+        System.out.println("|\\_/| \n|q p|   /} \n( 0 )\"\"\"\\ \n|\"^\"`    | \n||_/=\\\\__|");
 
-    } // main e 
+        // 7. printf() , %s문자열형식 , %d정수형식,  %- 왼쪽정렬 
+        int num = 10;    // 정수 1 를 저장하고 있는 int 타입 'num' 변수 선언
+        String writer = "유재석"; // 문자열 "유재석" 를 저장하고 있는 String타입 'writer' 변수 선언
+        String content = "안녕하세요!"; // 문자열 "안녕하세요!"를 저장하고 있는 String타입 'content' 변수 선언
+        System.out.println("============== 방문록 ==============");
+        System.out.printf("%-3s %-5s %-10s \n" , "번호" , "작성자" , "방문록" );
+        System.out.printf("%-5d %-5s %-10s \n" , num , writer , content );
+        System.out.println("====================================");
+
+        // 8. 입력방법 : 1) Scanner객체생성 2) nextXXX()함수
+        Scanner scan = new Scanner( System.in );        // 1) 
+        System.out.print("이름을 입력하세요: "); String 이름 = scan.next(); // 2) 적절한 nextXXX() 선택한다.
+        System.out.print("나이를 입력하세요: "); int 나이 = scan.nextInt(); // 2) nextXXX() 반환되는 타입에 따라 변수의 타입 선정
+        System.out.printf("%s님의 나이는 %d세 입니다.\n", 이름 , 나이 );
+
+        // 9. 8번에 Scanner 만들었기 때문에 이어서 사용 , nextLine() 띄어쓰기포함입력 , 
+        // nextLine() 주의할점 : 만약에 nextLine() 앞에 다른 nextXX() 존재 한 경우에는 사이에 의미없는 nextLine() 추가
+        System.out.print("게시물 번호: "); int 번호 = scan.nextInt();
+        scan.nextLine(); // nextInt() 3 입력후 엔터(\n) 치면 3 은 반환되고 엔터(\n) 유지(남는다) 된다. \n 초기화
+        System.out.print("게시물 제목: "); String 제목 = scan.nextLine();
+        System.out.print("게시물 내용: "); String 내용 = scan.nextLine();
+
+        // 10. nextChar() 제공하지 않는다. next().charAt(인덱스) : 해당인덱스의 문자1개 추출함수 , *문자열은 배열이다.*
+        System.out.print("성별을 입력하세요(남/여): "); char 성별 = scan.next().charAt(0);
+        System.out.printf("입력하신 성별은 %s 입니다. \n" , 성별 );
+
+        // 11. 직접 풀기 
+        
+
+    } // main e // ctrl+f5(코드실행) 
 }// class e
-
-/* 문제 4: 출력 함수와 문자열 연결
-지시: 문제 3에서 만든 변수들을 System.out.println() 함수와 + 연산자를 사용하여 아래와 같이 한 문장으로 출력하세요.
-예시: 제 이름은 홍길동, 나이는 25세, 키는 175.5cm 입니다.*/
-
-/* 문제 5: printf와 서식 지정자(Format Specifier)
-지시: 문제 4의 출력문을 System.out.printf() 함수와 서식 지정자를 사용하도록 수정하세요.
-요구 조건: 키(height)는 서식 지정자를 이용해 소수점 첫째 자리까지만 표시하세요.
-예시: 제 이름은 홍길동, 나이는 25세, 키는 175.5cm 입니다.*/
-
-/* 문제6: 아래와 같이 이스케이프 문자를 이용하여 콘솔에 출력하는 코드를 작성하시오.
- |\_/|
- |q p|   /}
- ( 0 )"""\
- |"^"`    |
- ||_/=\\__|
- */
-
-/* 문제7 : 아래 조건에 3가지의 변수가 주어졌을때. 그림과 같이 printf 이용한 출력 하는 코드를 작성하시오.
-int num = 1;    // 정수 1 를 저장하고 있는 int 타입 'num' 변수 선언
-String writer = "유재석"; // 문자열 "유재석" 를 저장하고 있는 String타입 'writer' 변수 선언
-String content = "안녕하세요!"; // 문자열 "안녕하세요!"를 저장하고 있는 String타입 'content' 변수 선언
-예시 :
-=========== 방문록 ============
-번호   작성자   방문록
-1      유재석   안녕하세요!
-============================
-*/
-
-/* 문제 8: Scanner를 이용하여 사용자의 이름(String)과 나이(int)를 입력받아, "OOO님의 나이는 OO세 입니다." 형식으로 출력하는 코드를 작성하시오.
-입력 예시:
-이름을 입력하세요: 유재석
-나이를 입력하세요: 51
-출력 예시:
-유재석님의 나이는 51세 입니다.
-*/
-
-/*
-문제 9: Scanner를 이용해 게시물 번호(int), 제목(String), 내용(String)을 순서대로 입력받아 출력하시오.
-요구 조건: 제목과 내용은 띄어쓰기가 포함될 수 있으므로 nextLine()을 사용하시오.
-입력 예시:
-게시물 번호: 1
-제목: 자바는 재미있어요
-내용: 정말입니다. 다들 동의하시죠?
-출력 예시:
-[ 1번 게시물 ]
-제목: 자바는 재미있어요
-내용: 정말입니다. 다들 동의하시죠?
-*/
-
 /*
 문제 10: Scanner를 이용해 성별을 한 글자('남' 또는 '여')로 입력받아 char 타입 변수에 저장하고, 입력된 성별을 출력하시오.
 요구 조건: Scanner에는 nextChar() 함수가 없으므로 next().charAt(0)을 활용하시오.
