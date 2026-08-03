@@ -7,18 +7,15 @@ public class Practice6 {
         
         // 1. 타입[] 변수명 = { 값1 , 값2 , 값3 } , 배열변수[인덱스]
         int[ ] numbers1 = { 10, 20, 30, 40, 50 }; System.out.println( numbers1[2] );
-
         // 2. 타입[] 변수명 = new 타입[ 총개수 ];
         String[ ] season = new String[ 3 ];
         season[0] = "봄";   season[1] = "여름";     season[2] = "가을";
         System.out.println( Arrays.toString(season) );
-
         // 3. for vs 향상된for문 
         String[ ] fruits = {"사과", "바나나", "포도", "딸기"};
         for( int index = 0 ; index <= fruits.length - 1 ; index++ ){ System.out.println( fruits[index] ); } 
         // vs
         for( String str : fruits ){ System.out.println( str ); }
-
         // 4. 배열변수명.length : 배열내 요소총길이 , 자동타입변환 : 연산시 두 항의 자료타입중 더 큰 타입으로 결과
         int[ ] scores1 = {85, 92, 78, 65, 95};
         int 합계4 = 0;
@@ -27,17 +24,27 @@ public class Practice6 {
         }
         System.out.printf( "합계: %d , 평균: %f \n" , 합계4 , 합계4 / (double)scores1.length ); // 5 -> 5.0
         
+        // 5. 
+        int[ ] scores2 = {77, 82, 100, 54, 96};
+        for( int score : scores2 ){
+            if( score == 100 ) { System.out.println("만점자!"); break;}
+        }
+        // 6.
+        String[ ] bloodTypes = {"A", "B", "O", "AB", "A", "B", "A"};
+        int count = 0;
+        for( String str : bloodTypes ){
+            if( str.equals("A") ){ count++; } // 만약에 "A" 이면 count 1 증가 
+        }
+        System.out.println( count );
+
+        // 7. 
+        int[ ] numbers2 = {23, 5, 67, 12, 88, 34};
+        int max = numbers1[0]; // 첫번째 값을 max 정하고 , 만약에 max 보다 i번째 요소값이 더 크면 max에 대입  
+        for( int number : numbers2 ){ if( max < number ) max = number; }
+        System.out.println( max );
+
     } // main end 
 } // class end 
-
-/*[문제 5] 점수 배열에서 100점 만점자가 처음 나타나면, "100점 만점자를 찾았습니다!"라고 출력하고 반복문을 즉시 종료하는 프로그램을 작성하시오.
-선언 코드: int[] scores2 = {77, 82, 100, 54, 96};*/
-
-/*[문제 6] 다음 배열에서 'A'형 혈액형을 가진 사람이 몇 명인지 for 반복문을 통해 세고, 그 수를 콘솔에 출력하시오.
-선언 코드: String[] bloodTypes = {"A", "B", "O", "AB", "A", "B", "A"};*/
-
-/*[문제 7] 주어진 숫자 배열에서 가장 큰 값을 찾아 콘솔에 출력하는 프로그램을 작성하시오.
-선언 코드: int[] numbers2 = {23, 5, 67, 12, 88, 34};*/
 
 /*[문제 8] products(상품 목록)와 stock(재고 수량) 배열이 있습니다. (*상품명과 재고수량 인덱스가 같다는 가정 )
 Scanner를 이용해 사용자로부터 구매할 상품명과 수량을 입력받아, 재고가 충분하면 "구매 완료!"를 출력하고 재고를 차감하세요.
