@@ -1,5 +1,7 @@
 package day04;
 
+import java.util.Scanner;
+
 public class Practice5 {
     public static void main(String[] args) {
         
@@ -54,41 +56,29 @@ public class Practice5 {
             System.out.println();
         } // for end 
 
+        // 9. 
+        Scanner scan = new Scanner( System.in ); // [1] *입력객체( 클래스마다 1개만 존재! )*
+        int count = 0;
+        while (true) { // 무한 루프/반복 
+            String str = scan.next( );              // [2] 입력함수 , 반환타입과 변수타입 일치 
+            if( str.equals("end") ){  // 만약에 str(입력받은값)이 ==[x] 대신 .equals() 사용, end 이면 
+                break;  // 가장 가까운 반복문 탈출! 
+            }
+            count++; // end 제외한 입력받은 수
+        } // w end 
+        System.out.println( count );
+
+        //10. 10/3 -> [java]3 [js]3.333    ,   3532100/100000 -> 353  -> 353/100 -> 3  
+        int july1 = 3532100;    int july2 = 9123700;    int july3 = 5183400;    int july4 = 11738700;
+        july1 /= 10000;         july2 /= 10000;         july3 /= 10000;         july4 /= 10000; 
+        for( int i = 1 ; i <= july1/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july1 +"만원");
+        for( int i = 1 ; i <= july2/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july2 +"만원");
+        for( int i = 1 ; i <= july3/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july3 +"만원");
+        for( int i = 1 ; i <= july4/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july4 +"만원");
+
     } // main end 
 } // class end 
 
-/*[문제 9] Scanner와 무한루프를 사용하여, 사용자가 "end"를 입력할 때까지 계속해서 문자열을 입력받는 프로그램을 작성하시오. "end"가 입력되면,
-그 전까지 입력된 문자열의 총 횟수를 계산하여 아래 출력 예시와 같이 출력한 뒤 프로그램을 종료하시오.
-요구 조건:
-무한루프를 사용하시오 (for(;;) 또는 while(true)).
-입력 횟수를 저장할 count 변수를 사용하시오.
-break를 사용하여 루프를 탈출하시오.
-문자열 비교는 .equals() 메소드를 사용하시오.
-실행 예시:
-1회 입력 : 자바
-2회 입력 : 자바스크립트
-3회 입력 : 파이썬
-4회 입력 : HTML
-5회 입력 : CSS
-6회 입력 : C언어
-7회 입력 : end
-[안내] 프로그램을 종료 합니다.[총 6회 입력] */
-
-/*[문제 10] 아래 선언된 4개의 변수는 7월 각 주차별 매출액입니다. 각 매출액을 '만원' 단위로 변환하고, 백만원 단위마다 '■' 문자로 시각화하여 아래 출력 예시와 같이 보고서를 출력하시오.
-선언 코드:
-int july1 = 3532100;
-int july2 = 9123700;
-int july3 = 5183400;
-int july4 = 11738700;
-요구 조건:
-매출액을 10000으로 나눈 몫을 사용하여 '만원' 단위를 계산합니다.
-'만원' 단위 값을 다시 100으로 나눈 몫만큼 for문을 사용하여 '■' 문자를 반복 출력합니다.
-출력 예시:
-------- 7월 매출액 -------
-1주차 : ■■■353만원
-2주차 : ■■■■■■■■■912만원
-3주차 : ■■■■■518만원
-4주차 : ■■■■■■■■■■■1173만원 */
 
 /*[문제 11] Scanner와 for(;;) 무한루프를 사용하여 간단한 ATM 기기를 만드시오.
 요구 조건:
