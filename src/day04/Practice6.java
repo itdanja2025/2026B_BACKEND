@@ -39,7 +39,7 @@ public class Practice6 {
 
         // 7. 
         int[ ] numbers2 = {23, 5, 67, 12, 88, 34};
-        int max = numbers1[0]; // 첫번째 값을 max 정하고 , 만약에 max 보다 i번째 요소값이 더 크면 max에 대입  
+        int max = numbers2[0]; // 첫번째 값을 max 정하고 , 만약에 max 보다 i번째 요소값이 더 크면 max에 대입  
         for( int number : numbers2 ){ if( max < number ) max = number; }
         System.out.println( max );
 
