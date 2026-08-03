@@ -1,6 +1,7 @@
 package day04;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Practice6 {
     public static void main(String[] args) {
@@ -43,22 +44,55 @@ public class Practice6 {
         for( int number : numbers2 ){ if( max < number ) max = number; }
         System.out.println( max );
 
+        // 8.
+        String[] products = {"볼펜", "노트", "지우개"};
+        int[] stock = {10, 5, 20};
+        Scanner scan = new Scanner( System.in ); // 1.입력객체 
+        System.out.print("구매할 상품명: ");    
+        String 상품명 = scan.next();
+        System.out.print("구매할 수량: ");      
+        int 수량 = scan.nextInt();
+
+        boolean find = false; // false 동일한제품명 없다. true 있다.
+        for( int index = 0 ; index <= products.length - 1 ; index++ ){
+            if( 상품명.equals( products[index] ) ){ // [1]입력받은 상품명 과 index번째 상품명과 같으면 
+                find = true; // 동일한 제품명 찾음 기록
+                if( 수량 <= stock[index] ){ // [2] 입력받은 수량 과 index번째 수량보다 이하이면 
+                    stock[ index ] -= 수량; // 수량 차감 
+                }else{
+                    System.out.println("재고가 부족합니다.");
+                }
+            }
+        }
+        if( find == false ) System.out.println("없는 제품명입니다.");
+
+        // 9.
+        String[] movieNames = {"히든페이스", "위키드", "글래디에이터2", "청설"};
+        int[] movieRatings = {8, 4, 7, 6};
+        for( int index = 0 ; index <= movieNames.length - 1 ; index++ ){
+            // [1] 영화 이름들을 하나씩 출력 
+            String name = movieNames[index];
+            System.out.print( name );
+            // [2] 별점 출력 , 1~10
+            for( int star = 1 ; star <= 10 ; star++ ){
+                // * 현재 별 보다 inde번째 평점이 더 크면 
+                if( star <= movieRatings[index] ){
+                    System.out.print("★ ");
+                }else{
+                    System.out.print("☆ ");
+                }
+            }
+            // [*] 줄바꿈
+            System.out.println();
+        } // for end 
+
+        // 10. 
+
     } // main end 
 } // class end 
 
-/*[문제 8] products(상품 목록)와 stock(재고 수량) 배열이 있습니다. (*상품명과 재고수량 인덱스가 같다는 가정 )
-Scanner를 이용해 사용자로부터 구매할 상품명과 수량을 입력받아, 재고가 충분하면 "구매 완료!"를 출력하고 재고를 차감하세요.
-재고가 부족하면 "재고가 부족합니다."를, 없는 상품이면 "없는 제품명입니다."를 출력합니다.
-선언 코드:
-String[] products = {"볼펜", "노트", "지우개"};
-int[] stock = {10, 5, 20};*/
 
-/*[문제 9] 주어진 영화 이름과 평점 배열을 이용하여, 각 영화의 평점을 별(★, ☆)로 시각화하여 출력하는 프로그램을 작성하시오.(* 영화명과 평점 인덱스가 같다는 가정 )
-요구 조건: 각 영화의 평점(10점 만점)만큼 꽉 찬 별(★)을, 나머지 점수만큼 빈 별(☆)을 출력합니다.
-예시: 평점이 8점이면 ★★★★★★★★☆☆ (총 10개의 별)
-선언 코드:
-String[] movieNames = {"히든페이스", "위키드", "글래디에이터2", "청설"};
-int[] movieRatings = {8, 4, 7, 6};
+/*[문제 9] 
 출력 예시:
 히든페이스 ★★★★★★★★☆☆
 위키드 ★★★★☆☆☆☆☆☆
