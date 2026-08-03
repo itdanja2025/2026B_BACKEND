@@ -65,8 +65,7 @@ public class Practice5 {
                 break;  // 가장 가까운 반복문 탈출! 
             }
             count++; // end 제외한 입력받은 수
-        } // w end 
-        System.out.println( count );
+        } // w end         System.out.println( count );
 
         //10. 10/3 -> [java]3 [js]3.333    ,   3532100/100000 -> 353  -> 353/100 -> 3  
         int july1 = 3532100;    int july2 = 9123700;    int july3 = 5183400;    int july4 = 11738700;
@@ -76,32 +75,25 @@ public class Practice5 {
         for( int i = 1 ; i <= july3/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july3 +"만원");
         for( int i = 1 ; i <= july4/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july4 +"만원");
 
+        // 11.
+        int balance = 0; // 입금 잔고, 반복문 밖에 선언한 이유는 입금액 초기화 1번 하기 위해서!
+        for( ; ; ){ // [무한루프]
+            System.out.println("1:입금 | 2:출금 | 3:잔고 | 4:종료" );  // 1. 무한루프 이용하여 무한 *출력
+            int ch = scan.nextInt(); // 2. 무한루프 이용하여 무한 *입력
+            // 3. 분기( if , 조건에 따라 서로 다른 코드 흐름 제어 )
+            if( ch == 1 ){ 
+                System.out.print("입금액:"); 
+                balance += scan.nextInt();  // 입력받은 값으로 잔고에 더한다.
+            }
+            else if( ch == 2 ){ 
+                System.out.print("출금액:"); 
+                int 출금액 = scan.nextInt(); // 입력받은 값
+                if( balance < 출금액 ){ System.out.println("잔고부족"); }
+                else{ balance -= 출금액; }
+            }
+            else if( ch == 3 ){ System.out.println("잔고: "+balance); }
+            else if( ch == 4 ){ System.out.println("프로그램을 종료합니다."); break; }
+        } // for end 
+        
     } // main end 
 } // class end 
-
-
-/*[문제 11] Scanner와 for(;;) 무한루프를 사용하여 간단한 ATM 기기를 만드시오.
-요구 조건:
-사용자에게 "1:입금 | 2:출금 | 3:잔고 | 4:종료" 메뉴를 보여줍니다.
-Scanner로 메뉴 번호를 입력받습니다.
-1번을 선택하면 "입금액:"을 물어보고, 입력받은 금액만큼 잔고(balance)를 증가시킵니다.
-2번을 선택하면 "출금액:"을 물어보고, 입력받은 금액만큼 잔고를 감소시킵니다. (단, 잔고보다 큰 금액은 출금할 수 없다고 안내)
-3번을 선택하면 현재 잔고를 출력합니다.
-4번을 선택하면 "프로그램을 종료합니다." 메시지를 출력하고 break를 이용해 무한루프를 탈출합니다.
-초기 잔고는 0으로 시작합니다.
-실행 예시:
----------------------------------
-1:입금 | 2:출금 | 3:잔고 | 4:종료
----------------------------------
-선택> 1
-입금액> 10000
----------------------------------
-1:입금 | 2:출금 | 3:잔고 | 4:종료
----------------------------------
-선택> 3
-잔고> 10000
----------------------------------
-1:입금 | 2:출금 | 3:잔고 | 4:종료
----------------------------------
-선택> 4
-프로그램을 종료합니다. */
