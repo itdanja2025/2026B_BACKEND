@@ -3,7 +3,7 @@ package day05;
 public class Exam1 { 
     public static void main(String[] args) {
         // 1] 객체만들기 
-        // 1) 클래스 생성 : 1) .java 새롭게만들기 2) 현재파일 class{} 밖
+        // 1) 클래스 생성 : 1) .java 파일 새롭게만들기 2) 현재파일 class{} 밖
         // class 클래스명{  상태; 행위; } 
         // 2) 클래스 { } 안에서 상태(멤버변수) 와 행위(메소드) 코드 작성
         // 3) 실행문(MAIN함수) 에서 객체 생성: 타입명 변수명 = new 생성자( 인수, 인수 );
