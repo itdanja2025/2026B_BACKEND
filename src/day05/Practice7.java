@@ -38,10 +38,32 @@ public class Practice7 {
         Product prod2 = new Product();  prod2.name="콜라";      prod2.price=2000;
         if( prod1.price > prod2.price ){ System.out.println( prod1.name );}
         else{ System.out.println( prod2.name); }
+
+        // [6] 클래스생성시 주의할점: 
+        // -- 1) 동일한 패키지(폴더)내 동일한 클래스명은 중복 불가능 
+        // -- src(개발자코드 .java)  ---> bin(컴파일/번역코드 .class) 
+        // -- 2) 첫글자는 대문자 시작
+        // -- 3) 클래스 1개 당 .java 파일 1개 관리 권장 ( *디자인패턴* )
+        Member m1 = new Member();                   // 2) 인스턴스 생성
+        m1.id = "admin";    m1.isLogin = false;     // 3) 멤버변수 값 대입 
+        System.out.println( m1.isLogin );           // 4) 멤버변수 값 호출 
+        m1.isLogin = true;
+        System.out.println( m1.isLogin );
+        // [7] 타입(자료형) 이란 : 자료의 구분
+        // 자료란? 데이터들 , 리터럴/상수 ( 3 , 3.14 , 'A' , true )
+        // 기본타입8가지 vs 참조타입(배열,객체) , 즉] 배열과 객체도 (1개)자료 이다. 
+        Television t1 = new Television();
+        t1.channel = 11;    t1.volume -= 2;
+        System.out.println( t1.channel );   System.out.println( t1.volume );
         
     }
 }
 
+class Television{ int channel=7; int volume=20; } //  channel은 7, volume은 20 초기값 
+class Member{ // 1) 클래스 생성
+    String id;
+    boolean isLogin;
+}
 
 // [1] 객체 정의 
 // 1. 클래스선언 : 기존 class{ } 밖에 새로운 클래스선언{ }
@@ -74,17 +96,6 @@ class Product{
     String name;
     int price;
 }
-
-
-/*[문제 6] Member 클래스를 만드세요. id(문자열)와 isLogin(boolean) 멤버 변수를 가집니다.
-1. main 함수에서 Member 객체를 하나 생성하고, 아이디는 "admin", isLogin은 false로 초기화하세요.
-2. "로그인 전 상태: [isLogin 값]"을 출력하세요.
-3. 객체의 isLogin 값을 true로 변경하여 로그인 상황을 구현하세요.
-4. "로그인 후 상태: [isLogin 값]"을 출력하세요.*/
-
-/*[문제 7] Television 클래스를 만드세요. channel(정수)과 volume(정수) 멤버 변수를 가집니다.
-1. main 함수에서 Television 객체를 생성하고, channel은 7, volume은 20으로 초기화하세요.
-2. 객체의 channel 값을 11로 변경하고, volume 값은 2 감소시킨 뒤, 변경된 채널과 볼륨을 출력하세요.*/
 
 /*[문제 8] Player 클래스를 만드세요. name(문자열), power(정수), speed(정수) 멤버 변수를 가집니다.
 1. main 함수에서 Player 객체 2개를 생성하세요.
