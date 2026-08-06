@@ -46,7 +46,7 @@ public class Exam1 {
         // 3. 확인??
         System.out.println( p1.job ); // 개발자
         System.out.println( p2.job ); // null
-        
+
     }
 } // class end 
 
@@ -85,9 +85,8 @@ class 사람타입{
         this.name = name;
         age = 1;
     }
-    // 취업/행위/상태변경 설계 = 메소드
+    // 사람이 태어난 후 행위/상태변경 설계 = 메소드
     void 취업성공( String 취업한직업 ){
         this.job = 취업한직업;
-        return;
     }
 }
