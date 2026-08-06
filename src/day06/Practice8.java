@@ -9,6 +9,24 @@ public class Practice8 {
         // [2]
         Rectangle r1 = new Rectangle( 10, 0);
 
+        // [3] 기본생성자 사용하는 경우 vs 정의생성자 사용하는 경우
+        BankAccount account = 
+            new BankAccount("111-222-3333", "유재석", 10000);
+    }
+}
+
+class BankAccount{ // 클래스란? 객체(인스턴스) 만들기 위한 설계도( 실체가 아니다. )
+    // * 클래스(설계도)가 동일하더라도 객체(인스턴스)는 new 마다 서로다른 실체!
+    String accountNumber; // 멤버 변수(필드) : 객체가 생성되면 객체내 사용 할 변수 뜻
+    String ownerName;
+    int balance;
+    // 생성자란? 객체(인스턴스) 생성할 때 초기값 대입
+    // 매개변수? 외부로부터 생성자/메소드에게 전달되는 값(인수) 저장하는 변수
+    // 관례적으로 생성자의 매개변수는 멤버변수명과 동일하며 this 구분
+    BankAccount( String accountNumber, String ownerName, int balance ){
+        this.accountNumber = accountNumber; // this.멤버변수명 = 매개변수명
+        this.ownerName = ownerName;
+        this.balance = balance;
     }
 }
 
@@ -38,46 +56,20 @@ class Book{
     // 3. 메소드 
 }
 
-/*[문제 3] BankAccount 클래스 (다양한 데이터 타입을 가진 생성자)
-
-BankAccount 클래스를 정의하세요. (멤버 변수: accountNumber, ownerName, balance)
-
-멤버 변수의 타입은 적절하게 선택하시오.
-
-세 멤버 변수(accountNumber, ownerName, balance)를 모두 전달받아 초기화하는 생성자를 정의하세요.
-
-main 함수에서 ("111-222-3333", "유재석", 10000) 정보로 BankAccount 객체를 생성하세요.
-
-객체 생성 후, 해당 객체의 계좌번호, 예금주명, 잔액 정보를 출력하여 올바르게 초기화되었는지 확인하세요.*/
-
-
-
 /*[문제 4] Goods 클래스 (생성자 오버로딩)
-
 Goods 클래스를 정의하세요. (멤버 변수: name, price)
-
 멤버 변수의 타입은 적절하게 선택하시오.
-
 Goods 클래스에 생성자 오버로딩을 적용하여 두 개의 생성자를 정의하세요.
-
 기본 생성자: name은 "미정", price는 0으로 초기화
-
 매개변수 생성자: name과 price를 전달받아 초기화
-
 main 함수에서 다음 두 객체를 각각 생성하고, 두 객체의 멤버 변수 정보를 출력하세요.
-
 기본 생성자로 생성한 객체
-
 매개변수 생성자를 통해 ("콜라", 2000) 정보로 생성한 객체*/
 
 
 
 /*[문제 5] Member 클래스 (기본 생성자 및 초기값 설정)
-
 Member 클래스를 정의하세요. (멤버 변수: id, isLogin)
-
 멤버 변수의 타입은 적절하게 선택하시오.
-
 Member 클래스에 기본 생성자를 만들고, 생성자 내부에서 id는 "guest", isLogin은 false로 초기화되도록 구현하세요.
-
 main 함수에서 new Member()로 객체를 생성한 뒤, 초기화된 id와 isLogin 값을 출력하여 확인하세요.*/
