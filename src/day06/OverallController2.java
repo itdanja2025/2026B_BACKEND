@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class OverallController2 { // class end // 자바 번역하는 최소의 단위
     public static void main(String[] args) { // main 함수는 프로그램 시작점!
-
         // [5] 배열 ( 하나의 표 저장하기 위한 )
         게시물[] 게시물목록 = new 게시물[100];; // 게시물 100개 저장하는 게시물 목록
         // *배열 입장* 에서는 게시물 저장하는거지 내용/작성자 저장하는게 아니라. 내용/작성자 는 게시물 저장
