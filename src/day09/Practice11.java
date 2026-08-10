@@ -28,7 +28,7 @@ public class Practice11 {
         list2.add("자바");  list2.add("파이썬");  list2.add("C++");
         list2.add(1, "자바스크립트"); // 중간삽입
         System.out.println( list2 );
-        // [6] 내가만든 클래스/타입 으로 제네릭타입 가능!
+        // [6] 내가만든 클래스/타입 으로 <제네릭타입> 가능!
         ArrayList< Book > bookList = new ArrayList<>(); 
         bookList.add( new Book("책이름1", "저자1") );
         bookList.add( new Book("책이름2", "저자2") );
