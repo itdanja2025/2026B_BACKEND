@@ -17,9 +17,8 @@ public class BoardProgram {
             System.out.print("선택> ");
             int ch = scan.nextInt();
             if( ch == 1 ){      // 제어문/코드의 흐름(경우의수) 판단한다.
-                scan.nextLine();
-                System.out.print("내용 : ");      String content = scan.nextLine(); // 입력
-                System.out.print("작성자 : ");     String writer = scan.nextLine();
+                System.out.print("내용 : ");      String content = scan.next(); // 입력
+                System.out.print("작성자 : ");     String writer = scan.next();
                 boolean save = false; // 저장했다 true , 저장못했다 false;
                 for( int index = 0 ; index <= contents.length-1 ; index++ ){
                     if( contents[index] == null && writers[index] == null ){ // index번째 요소값이 비어있으면
