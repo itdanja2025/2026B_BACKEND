@@ -81,10 +81,10 @@ select * from member order by mdebut desc;
 -- 1차정렬 지역(maddr) 먼저 정렬하고  지역 필드내 *동일한 값 끼리* 2차정렬( mdebut ) 한다.
 select * from member order by maddr desc , mdebut asc; 
 
-# [6] limit: 결과 레코드 제한, *페이징처리* 
+# [6] limit: 결과 레코드 제한
 select * from member;   -- 10개
-select * from member limit 2; -- 1 ~ 2 (2)
 select * from member limit 0 , 2; -- 1 ~ 2 ( 0번 부터 2개 )(2)
+select * from member limit 2; -- 시작인덱스 생략시 0부터 (2)
 select * from member limit 5 , 5; -- 5번 부터 5개 (5) 
 
 -- [순서] select 필드명 from 테이블명 where 조건절 group by 그룹필드 having 그룹조건 order by 정렬필드 limit 시작인덱스, 개수;
