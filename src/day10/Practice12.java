@@ -22,7 +22,6 @@ public class Practice12 {
         SuperClass obj = new SubClass(); // 업캐스팅(자동타입변환) Sub -> Super
         System.out.println( obj.name ); // '상위'
         obj.method(); // '하위 메소드'
-
     }
 }
 // [9] 멤버변수는 각각, 메소드 공유
