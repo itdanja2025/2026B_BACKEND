@@ -1,5 +1,8 @@
 package day12;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Exam1 {
     public static void main(String[] args) {
         // 예외란? 에러발생 시 고치는게 아니라 흐름 제어 vs if
@@ -40,6 +43,34 @@ public class Exam1 {
         }catch( ArrayIndexOutOfBoundsException e  ){ System.out.println( e ); }
         // * 여러 타입들의 예외들을 하나의 타입으로 Exception (상위) 클래스 사용 가능하다.
 
+        // [3] 다중 catch : try에서 다양한 예외들을 다양하게 흐름 제어 , catch 1번!
+        // [4] finally: 예외가 발생 여부 상관없이 무조건 실행 구역 , 외부 프로그램 연동 종료 코드
+        // 6. InputMismatchException: 입력 타입 예외 발생 
+        Scanner scan = new Scanner(System.in);
+        try{
+            System.out.print("정수입력: ");
+            int ch = scan.nextInt(); // nextInt() 입력받은 자료들을 INT타입 반환 함수
+            Integer.parseInt( "ABC"); // 예외
+        }catch( InputMismatchException e ){
+            System.out.println("정수만 입력하세요"+e);
+        }catch( NumberFormatException e ){
+            System.out.println("타입변환 오류"+ e );
+        }catch( Exception e ){ // 다중 catch 에서 마지막!에 Exception 사용하여 그외 처리한다.
+            System.out.println("예외발생:관리자에게문의: "+e );
+        }finally{ System.out.println("무조건 실행"); }
 
-    } // main end 
+        // * try{ 예외발생할것코드 }catch( 예외클래스명 변수명 ){ }catch( 예외클래스명 변수명 ){ }finally{ }
+
+        // [5] 예외 던지지(떠넘기기) , *예외반환*: 해당 메소드를 호출한 곳으로 예외 반환
+        try{
+            method1(); // 예외가 반환에 따라 예외처리 해야한다.
+        }catch( Exception e ){ System.out.println( "메소드 예외발생"+e );}
+
+    } // main end // main함수 밖 
+
+    // 7. 예외발생시 발생한 곳에서 예외처리 하지 않고 반환
+    public static void method1( ) throws ClassNotFoundException {
+        Class.forName("java.lang.Spring"); // 예외발생?
+    }
+
 } // class end 
