@@ -35,7 +35,7 @@ public class Exam2 {
             String sql2 = "select * from test";
             PreparedStatement ps2 = conn.prepareStatement( sql2 ); // 작성한 SQL 기재한다.
             ResultSet rs = ps2.executeQuery(); // 기재된 SQL 실행 , 결과을 rs(ResultSet) 인터페이스 대입
-            rs.next(); // 조회 결과에서 다음레코드 이동
+            rs.next(); // 조회 결과(조회 결과는 테이블형식으로 반환됨에따라) 에서 (하나씩)다음 레코드 이동
             System.out.println( rs.getInt("no") ); // rs.get타입( "속성명" );
             System.out.println( rs.getString( "name") ); // rs.get타입( "속성명" );
             System.out.println("레코드 조회 성공" );
