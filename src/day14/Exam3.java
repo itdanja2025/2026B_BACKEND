@@ -20,19 +20,19 @@ public class Exam3 {
         // set1.get( 0 ); 
         // 4. .size( ); : 항목 개수 반환 
         System.out.println( set1.size() );
-        // 6. .remove( 자료 );   인덱스가 아닌 자료 삭제
+        // 5. .remove( 자료 );   인덱스가 아닌 자료 삭제
         set1.remove("강호동");
-        // 7. .indexOf( 찾을값 ); 지원불가,  contains( 찾을값 ) 지원
+        // 6. .indexOf( 찾을값 ); 지원불가,  contains( 찾을값 ) 지원
         set1.contains( "강호동" ); // false 
-        // 8. .clear() : 항목 전체삭제 
+        // 7. .clear() : 항목 전체삭제 
         set1.clear();
-        // 9. .isEmpty() : 항목이 하나도 없으면 true / false 
+        // 6. .isEmpty() : 항목이 하나도 없으면 true / false 
         set1.isEmpty();
-        // 10. set 컬렉션과 반복문 관계
-        // 1. 일반for문 , 불가능( 인덱스가 없으니까 )
-        // 2. 향상된 for문, 지원
+        // 7. set 컬렉션과 반복문 관계
+        // 1). 일반for문 , 불가능( 인덱스가 없으니까 )
+        // 2). 향상된 for문, 지원
         for( String str : set1 ){ System.out.println( str ); }
-        // 3. forEach, 지원 , 컬렉션객체.forEach( (반복변수명) -> { } )
+        // 3). forEach, 지원 , 컬렉션객체.forEach( (반복변수명) -> { } )
         set1.forEach( ( str ) -> { System.out.println( str); } );
         
         // - 활용처: Set( JDBC ResultSet )
@@ -42,7 +42,7 @@ public class Exam3 {
         } 
         // 즉] 위 코드 이용한 향상된 for문 / forEach / ResultSet  만들어졌다.
 
-        // 11. TreeSet 이용한 자동 정렬 지원
+        // 8. TreeSet 이용한 자동 정렬 지원
         TreeSet< Integer > set2 = new TreeSet<>();
         set2.add( 50 );     set2.add( 70 );     set2.add( 60 );
         System.out.println( set2 ); // [50, 60, 70] : 기본값이 오름차순 
