@@ -16,16 +16,56 @@ public class Exam3 {
         // -> main메소드가 main스레드 제공한다. (프로그램 당 1개 이상 존재)
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         // 1) 1초에 1번씩 '띵' 소리 발생
-        for( int i = 1 ; i<=5 ; i++ ){
+        for( int i = 1 ; i<=3 ; i++ ){
             toolkit.beep(); // '띵' 발생하는 함수 
             // 현재 스레드(코드 실행하는 흐름단위) 일시정지(밀리초)*예외필수
             try{ Thread.sleep( 1000 ); } catch( Exception e){ }
         }
         // 2) 1초에 번씩 '띵' 출력 발생 
-        for( int i = 1 ; i<=5 ; i++ ){ 
+        for( int i = 1 ; i<=3 ; i++ ){ 
            System.out.println("띵");
            try{ Thread.sleep( 1000 ); }catch( Exception e ){ }
         }
 
+        // [2] 멀티스레드 방법1: 익명구현체, new 인터페이스타입(){ 오버라이딩 };
+        // Runnable runnable = new Runnable() { };
+        Runnable runnable = new Runnable() { 
+            // 새로운(작업) 스레드가 처리할 메소드 = run( ) 오버라이딩(재정의)
+            @Override public void run() {
+                for( int i = 1 ; i<=5 ; i++ ){
+                    System.out.println(">1번째 새로운 스레드: " + i );
+                    try{ Thread.sleep( 1000 );}catch(Exception e){}
+                }
+            }
+        }; // 익명구현체 구현끝
+        Thread thread1 = new Thread( runnable ); // new Thread( 익명구현체 ); 
+        thread1.start( );    // 새로운 스레드가 run() 메소드 호출 = start( ) , MAIN / TASK1 (2)
+        
+        // [3] 멀티스레드 방법2: 구현체
+        작업스레드2 작업스레드2 = new 작업스레드2();
+        Thread thread2 = new Thread( 작업스레드2 );
+        thread2.start();    // MAIN / TASK1 / TASK2 (3개)
+        
+        // [4] 멀티스레드 방법3: 상속
+        작업스레드3 thread3 = new 작업스레드3();
+        thread3.start();    // MAIN / TASK1 / TASK2 / TASK3 (4개) = 병렬처리( 처리 순서 보장 없다. )
+
     } // main end 
 } // class end 
+class 작업스레드3 extends Thread{ 
+    @Override public void run() {
+        for( int i = 1 ; i<=5 ; i++ ){
+            System.out.println(">>3번째 새로운 스레드: "+i );
+            try{ Thread.sleep( 1000 );}catch(Exception e){}
+        }
+    }
+}
+
+class 작업스레드2 implements Runnable{
+    @Override public void run() {
+        for( int i = 1 ; i<=5 ; i++ ){
+            System.out.println(">>2번째 새로운 스레드: "+i);
+            try{ Thread.sleep( 1000 );}catch(Exception e){}
+        }
+    }
+}
