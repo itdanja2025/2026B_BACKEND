@@ -26,6 +26,7 @@ public class Exam4 {
                 if( thread2 != null ) thread2.state = false;
             }
         } // while end 
+
     } // main end [1.MAIN스레드] 사망(프로그램 끝)
 } // class end
 
