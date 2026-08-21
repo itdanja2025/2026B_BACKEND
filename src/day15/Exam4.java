@@ -26,7 +26,7 @@ public class Exam4 {
                 if( thread2 != null ) thread2.state = false;
             }
         } // while end 
-    } // main end 
+    } // main end [1.MAIN스레드] 사망(프로그램 끝)
 } // class end
 
 class 타이머스레드 extends Thread{
@@ -39,7 +39,7 @@ class 타이머스레드 extends Thread{
             try{ Thread.sleep( 1000 ); }
             catch(Exception e ){ }
         }
-    }
+    } // run 종료되면 작업스레드 종료
 }
 class 시계스레드 implements Runnable{ // Runnable인터페이스 구현하면 멀티스레드 정의!
     @Override public void run() { // 멀티스레드가 처리할 작업
@@ -47,5 +47,5 @@ class 시계스레드 implements Runnable{ // Runnable인터페이스 구현하�
             System.out.println( LocalTime.now() ); // 현재시간
             try{ Thread.sleep(1000); }catch(Exception e ){ } // 1초일시정지
         }
-    }
+    } // run 종료되면 작업스레드 종료
 } 
