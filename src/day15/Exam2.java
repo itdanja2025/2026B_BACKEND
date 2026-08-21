@@ -26,6 +26,6 @@ public class Exam2 {
         while ( !queue.isEmpty() ) { 
             System.out.println( queue.poll() ); // 1 -> 2 -> 3 
         }
-
+        
     } // main end 
 } // class end 
